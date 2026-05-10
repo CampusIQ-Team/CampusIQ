@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  </head>
+<body>
+    <div class="container">
+
+        <!-- Sidebar Navigation -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="logo">
+                        <div class="logo-mark">CI</div>
+                        <span class="nav-item">CampusIQ</span>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="#">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user-graduate"></i>
+                        <span class="nav-item">My Profile</span>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="#">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-item">Risk Analysis</span>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="#">
+                        <i class="fas fa-book"></i>
+                        <span class="nav-item">Subjects</span>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="#">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="nav-item">Attendance</span>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="#">
+                        <i class="fas fa-lightbulb"></i>
+                        <span class="nav-item">Recommendations</span>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        <span class="nav-item">Settings</span>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="LoginRegister.html" class="logout" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    
+    
+        <!-- Main Dashboard -->
+        <section class="main">
+    
+            <div class="main-top">
+                <div>
+                    <h1>Student Dashboard</h1>
+                    <p>Welcome back, Student.</p>
+                </div>
+                <i class="fas fa-bell"></i>
+            </div>
+    
+    
+            <!-- Overview Cards -->
+            <div class="overview-cards">
+    
+                <div class="overview-card">
+                    <div>
+                        <h3>Current GPA</h3>
+                        <h2>3.4</h2>
+                    </div>
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+    
+                <div class="overview-card warning">
+                    <div>
+                        <h3>Risk Level</h3>
+                        <h2>Medium</h2>
+                    </div>
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+    
+                <div class="overview-card success">
+                    <div>
+                        <h3>Attendance</h3>
+                        <h2>87%</h2>
+                    </div>
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+    
+                <div class="overview-card info">
+                    <div>
+                        <h3>Assignments</h3>
+                        <h2>5 Pending</h2>
+                    </div>
+                    <i class="fas fa-tasks"></i>
+                </div>
+    
+            </div>
+    
+    
+            <!-- Academic Performance -->
+            <section class="performance-section">
+    
+                <div class="section-header">
+                    <h2>Academic Performance</h2>
+                    <button>View Report</button>
+                </div>
+    
+                <div class="subject-container">
+    
+                    <div class="subject-card">
+                        <h3>Programming</h3>
+                        <p>Average: 78%</p>
+    
+                        <div class="progress-bar">
+                            <div class="progress programming"></div>
+                        </div>
+                    </div>
+    
+                    <div class="subject-card">
+                        <h3>Databases</h3>
+                        <p>Average: 69%</p>
+    
+                        <div class="progress-bar">
+                            <div class="progress databases"></div>
+                        </div>
+                    </div>
+    
+                    <div class="subject-card">
+                        <h3>Machine Learning</h3>
+                        <p>Average: 58%</p>
+    
+                        <div class="progress-bar">
+                            <div class="progress ml"></div>
+                        </div>
+                    </div>
+    
+                </div>
+            </section>
+    
+    
+            <!-- Risk Analysis -->
+            <section class="risk-section">
+    
+                <div class="section-header">
+                    <h2>Risk Analysis</h2>
+                </div>
+    
+                <div class="risk-box">
+                    <div class="risk-score">
+                        <h1>65%</h1>
+                        <p>Academic Risk Score</p>
+                    </div>
+    
+                    <div class="risk-details">
+                        <h3>Detected Risk Factors</h3>
+                        <ul>
+                            <li>Low performance in Machine Learning</li>
+                            <li>Attendance below 90%</li>
+                            <li>Late assignment submissions</li>
+                        </ul>
+                    </div>
+                </div>
+    
+            </section>
+    
+    
+            <!-- Recommendations -->
+            <section class="recommendation-section">
+    
+                <div class="section-header">
+                    <h2>Personalised Recommendations</h2>
+                </div>
+    
+                <div class="recommendation-container">
+    
+                    <div class="recommendation-card">
+                        <i class="fas fa-book-reader"></i>
+                        <h3>Study More ML</h3>
+                        <p>Spend 3 extra hours weekly revising Machine Learning concepts.</p>
+                    </div>
+    
+                    <div class="recommendation-card">
+                        <i class="fas fa-user-clock"></i>
+                        <h3>Improve Attendance</h3>
+                        <p>Attend all upcoming lectures to improve participation metrics.</p>
+                    </div>
+    
+                    <div class="recommendation-card">
+                        <i class="fas fa-laptop-house"></i>
+                        <h3>Complete Tasks Early</h3>
+                        <p>Submit assignments at least 2 days before the deadline.</p>
+                    </div>
+    
+                </div>
+    
+            </section>
+    
+        </section>
+    
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>
