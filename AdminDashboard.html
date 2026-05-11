@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusIQ Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/adminStyle.css">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>CampusIQ</h2>
+            </div>
+    
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="#">
+                        <i class='bx bxs-dashboard'></i>
+                        Dashboard
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-user'></i>
+                        Students
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-bar-chart-alt-2'></i>
+                        Analytics
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-cog'></i>
+                        Settings
+                    </a>
+                </li>
+
+                <li>
+                    <a href="LoginRegister.html" id="logoutBtn">
+                        <i class='bx bx-log-out'></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    
+        <!-- Main Content -->
+        <main class="main-content">
+    
+            <!-- Topbar -->
+            <header class="topbar">
+                <h1>Admin Dashboard</h1>
+    
+                <div class="admin-profile">
+                    <div class="profile-avatar">A</div>
+                    <span>Admin</span>
+                </div>
+            </header>
+    
+            <!-- Cards -->
+            <section class="cards">
+    
+                <div class="card">
+                    <i class='bx bxs-user'></i>
+                    <div>
+                        <h2>1,245</h2>
+                        <p>Total Students</p>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <i class='bx bx-error-circle'></i>
+                    <div>
+                        <h2>84</h2>
+                        <p>At Risk</p>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <i class='bx bx-trending-up'></i>
+                    <div>
+                        <h2>91%</h2>
+                        <p>Pass Rate</p>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <i class='bx bx-brain'></i>
+                    <div>
+                        <h2>AI Active</h2>
+                        <p>Recommendations</p>
+                    </div>
+                </div>
+    
+            </section>
+    
+            <!-- Charts -->
+            <section class="charts">
+    
+                <div class="chart-box">
+                    <h3>Performance Overview</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+    
+                <div class="chart-box risk-box">
+                    <h3>Risk Level</h3>
+    
+                    <div class="risk-circle">
+                        <span>72%</span>
+                    </div>
+    
+                    <p>Moderate Risk</p>
+                </div>
+    
+            </section>
+    
+            <!-- Student Table -->
+            <section class="table-section">
+    
+                <div class="table-header">
+                    <h2>Student Monitoring</h2>
+    
+                    <input type="text" id="searchInput" placeholder="Search student...">
+                </div>
+    
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Course</th>
+                            <th>Performance</th>
+                            <th>Risk Level</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody id="studentTable">
+    
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Computer Science</td>
+                            <td>78%</td>
+                            <td>Low</td>
+                            <td><span class="status active">Active</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td>Sarah Smith</td>
+                            <td>Data Science</td>
+                            <td>45%</td>
+                            <td>High</td>
+                            <td><span class="status risk">At Risk</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td>Michael Brown</td>
+                            <td>Information Systems</td>
+                            <td>62%</td>
+                            <td>Moderate</td>
+                            <td><span class="status warning">Monitor</span></td>
+                        </tr>
+    
+                    </tbody>
+                </table>
+    
+            </section>
+    
+            <!-- AI Recommendations -->
+            <section class="recommendations">
+    
+                <h2>AI Recommendations</h2>
+    
+                <div class="recommendation-card">
+                    <i class='bx bx-brain'></i>
+    
+                    <div>
+                        <h4>Student Intervention</h4>
+                        <p>
+                            Sarah Smith has declining performance trends.
+                            Recommend tutor support and counselling.
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="recommendation-card">
+                    <i class='bx bx-line-chart'></i>
+    
+                    <div>
+                        <h4>Performance Improvement</h4>
+                        <p>
+                            Overall student performance increased by 12%
+                            compared to last semester.
+                        </p>
+                    </div>
+                </div>
+    
+            </section>
+    
+        </main>
+
+
+    <script src="js/auth.js"></script>
+    <script src="js/adminDashboard.js"></script>
+</body>
+</html>
