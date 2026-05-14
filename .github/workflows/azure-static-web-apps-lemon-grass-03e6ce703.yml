@@ -30,10 +30,10 @@ jobs:
           action: "upload"
 
           # Frontend folder
-          app_location: "Frontend"
+          app_location: "Frontend/index.html"
 
           # Express backend folder
-          api_location: "Backend"
+          api_location: "Backend/server.js"
 
           # Frontend build output
           output_location: "dist"
