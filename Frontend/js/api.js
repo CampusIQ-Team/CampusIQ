@@ -54,11 +54,11 @@ function loginUser(email, password) {
     return apiRequest("/auth/login", "POST", { email, password });
 }
 
-function registerUser(firstName, lastName, email, password) {
+function registerUser(name, email, password, role = "student") {
     return apiRequest("/auth/register", "POST", {
-        firstName,
-        lastName,
+        name,
         email,
-        password
+        password,
+        role
     });
 }
