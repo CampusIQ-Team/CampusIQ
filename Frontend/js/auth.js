@@ -55,8 +55,7 @@ if (loginForm) {
             showMessage("Login successful!");
 
             const role = response.role?.toLowerCase();
-            window.location.href = role === "admin" ? "AdminDashboard.html" : "StudentDashboard.html";
-        } catch (error) {
+            window.location.href = role === "admin" ? "/admin-dashboard" : "/student-dashboard";        } catch (error) {
             showMessage(error.message || "Login failed. Please try again.");
         }
     });
@@ -77,6 +76,7 @@ if (registerForm) {
         const email = document.getElementById("registerEmail").value.trim();
         const password = document.getElementById("registerPassword").value;
         const confirmPassword = document.getElementById("confirmPassword").value;
+        const role = document.getElementById("registerRole").value;
 
         const name = `${firstName} ${lastName}`;
 
@@ -96,13 +96,14 @@ if (registerForm) {
         }
 
         try {
-            const response = await registerUser(name, email, password, role = "student");
+            const response = await registerUser(name, email, password, role);
             showMessage(response.message || "Registration successful! You can now log in.");
             document.querySelector(".container")?.classList.remove("active");
             registerForm.reset();
         } catch (error) {
             showMessage(error.message || "Registration failed. Please try again.");
         }
+
     });
 }
 

@@ -22,17 +22,29 @@ app.use(
   express.static(path.join(__dirname, 'Frontend'))
 );
 
+// Routes ==================================================
 const authRoutes = require('./Backend/routes/auth');
 app.use('/api/auth', authRoutes);
 
 app.get('/', (req, res) => {
   //res.json({ message: 'CampusIQ API running' });
-  res.redirect('/login');
+  res.redirect('/home');
+});
 
+app.get('/home', (req, res) => {
+  res.render('home');
 });
 
 app.get('/login', (req, res) => {
   res.render('LoginRegister');
+});
+
+app.get('/admin-dashboard', (req, res) => {
+  res.render('AdminDashboard');
+});
+
+app.get('/student-dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Frontend', 'views', 'StudentDashboard.html'));
 });
 
 const PORT = process.env.PORT || 5000;

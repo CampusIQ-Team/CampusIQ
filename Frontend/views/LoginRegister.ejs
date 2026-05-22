@@ -54,6 +54,15 @@
                     <input id="registerEmail" type="email" placeholder="Student Email" required>
                     <i class="bx bx-envelope"></i>
                 </div>
+
+                <div class="input-box">
+                    <select id="registerRole" name="registerRole" required>
+                        <option value="">Select Role</option>
+                        <option value="student">Student</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                
                 <div class="input-box">
                     <input id="registerPassword" type="password" placeholder="Password" required>
                     <i class="bx bx-lock"></i>
@@ -62,8 +71,6 @@
                     <input id="confirmPassword" type="password" placeholder="Confirm Password" required>
                     <i class="bx bx-lock"></i>
                 </div>
-                
-                <input type="hidden" id="registerRole" value="student">
 
                 <button type="submit" class="btn">Register</button>
 
