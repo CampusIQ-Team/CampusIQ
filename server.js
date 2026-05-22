@@ -47,5 +47,28 @@ app.get('/student-dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'Frontend', 'views', 'StudentDashboard.html'));
 });
 
+app.get('/about', (req, res) => {
+  res.render('About');
+});
+
+app.use('/api/submissions', require('./Backend/routes/submissions'));
+
+app.get('/student-form', (req, res) => {
+  res.render('StudentForm');
+});
+
+app.get('/risk-result', (req, res) => {
+  res.render('RiskResult');
+});
+
+app.get('/student-profile', (req, res) => {
+  res.render('StudentProfile');
+});
+
+app.get('/management', (req, res) => {
+  res.render('Management');
+});
+
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server on port ${PORT}`));

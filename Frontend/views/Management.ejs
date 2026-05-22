@@ -1,0 +1,41 @@
+<%- include("../partials/header", { title: "EduRisk | Student Management" }) %>
+
+<link rel="stylesheet" href="/css/management.css">
+
+<%- include("../partials/navbar", { activePage: "management" }) %>
+
+<section class="management-hero">
+    <div>
+        <h1>Student management</h1>
+        <p>1,248 students · 87 high risk · 213 medium risk</p>
+    </div>
+</section>
+
+<section class="management-box">
+    <div class="management-top">
+      <input id="student-search" type="text" placeholder="Search by name, email, or ID...">
+  
+      <div class="filter-buttons">
+        <button class="active" data-risk="all">All</button>
+        <button data-risk="high">High risk</button>
+        <button data-risk="medium">Medium</button>
+        <button data-risk="low">Low risk</button>
+      </div>
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>ID</th>
+          <th>Attendance</th>
+          <th>Avg Grade</th>
+          <th>Risk</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="students-body"></tbody>
+    </table>
+  </section>
+
+<%- include("../partials/footer") %>

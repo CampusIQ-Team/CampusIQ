@@ -1,0 +1,231 @@
+<%- include("../partials/header", { title: "EduRisk | Home" }) %>
+
+<link rel="stylesheet" href="/css/home.css">
+
+<%- include("../partials/navbar", { activePage: "home" }) %>
+
+<!-- ======================================================
+     HERO SECTION
+====================================================== -->
+
+<section class="hero">
+
+    <span class="hero-tag">
+        Early intervention platform
+    </span>
+
+    <h1>
+        Identify at-risk students before it’s too late
+    </h1>
+
+    <p>
+        EduRisk uses predictive analytics to surface students who need
+        support — so educators can intervene early.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="/management" class="btn btn-primary">
+            View students
+        </a>
+
+        <a href="/about" class="btn btn-secondary">
+            Learn more
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+     STATISTICS CARDS
+====================================================== -->
+
+<section class="stats-container">
+
+    <div class="stat-card">
+
+        <p>Total Students</p>
+
+        <div class="stat-value">
+            1,248
+            <span class="pill green">+32</span>
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <p>High Risk</p>
+
+        <div class="stat-value">
+            87
+            <span class="pill red">+5</span>
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <p>Medium Risk</p>
+
+        <div class="stat-value">
+            213
+            <span class="pill orange">+18</span>
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <p>Interventions Active</p>
+
+        <div class="stat-value">
+            54
+            <span class="pill green">+9</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+     RECENT ALERTS
+====================================================== -->
+
+<section class="content-box">
+
+    <div class="section-top">
+
+        <div>
+            <h2>Recent alerts</h2>
+            <p>Students flagged in the last 7 days</p>
+        </div>
+
+        <a href="/management" class="view-btn">
+            View all
+        </a>
+
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Grade</th>
+                <th>Risk Level</th>
+                <th>Factor</th>
+                <th>Flagged</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td><strong>Amara Dlamini</strong></td>
+                <td>Grade 10</td>
+                <td><span class="risk high">High</span></td>
+                <td>Attendance 42%</td>
+                <td>2 days ago</td>
+            </tr>
+
+            <tr>
+                <td><strong>Sipho Nkosi</strong></td>
+                <td>Grade 11</td>
+                <td><span class="risk high">High</span></td>
+                <td>Grades declining</td>
+                <td>3 days ago</td>
+            </tr>
+
+            <tr>
+                <td><strong>Lerato Mokoena</strong></td>
+                <td>Grade 9</td>
+                <td><span class="risk medium">Medium</span></td>
+                <td>Missed assessments</td>
+                <td>4 days ago</td>
+            </tr>
+
+            <tr>
+                <td><strong>Thabo Mahlangu</strong></td>
+                <td>Grade 12</td>
+                <td><span class="risk medium">Medium</span></td>
+                <td>Low participation</td>
+                <td>5 days ago</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ======================================================
+     RISK BREAKDOWN
+====================================================== -->
+
+<section class="content-box">
+
+    <h2 class="breakdown-title">
+        Risk breakdown by grade
+    </h2>
+
+    <div class="breakdown-grid">
+
+        <!-- LEFT BOX -->
+
+        <div class="breakdown-card">
+
+            <h3>Grade 9 — 312 students</h3>
+
+            <div class="risk-row">
+                <span>High risk</span>
+                <span>14 students</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill red-fill" style="width: 30%;"></div>
+            </div>
+
+            <div class="risk-row">
+                <span>Medium risk</span>
+                <span>41 students</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill orange-fill" style="width: 65%;"></div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT BOX -->
+
+        <div class="breakdown-card">
+
+            <h3>Grade 12 — 298 students</h3>
+
+            <div class="risk-row">
+                <span>High risk</span>
+                <span>31 students</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill red-fill" style="width: 45%;"></div>
+            </div>
+
+            <div class="risk-row">
+                <span>Medium risk</span>
+                <span>67 students</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill orange-fill" style="width: 70%;"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<%- include("../partials/footer") %>

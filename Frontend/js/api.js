@@ -62,3 +62,24 @@ function registerUser(name, email, password, role = "student") {
         role
     });
 }
+
+// ============================================
+// Submissions API Functions
+// ============================================
+
+function submitStudentData(formData) {
+    return apiRequest("/submissions", "POST", formData);
+}
+
+function getMySubmissions() {
+    return apiRequest("/submissions/mine");
+}
+
+function getAllSubmissions() {
+    return apiRequest("/submissions/all");
+}
+
+function getSubmissionById(id) {
+    return apiRequest(`/submissions/${id}`);
+}
+

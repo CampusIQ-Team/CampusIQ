@@ -9,9 +9,9 @@
            Home
        </a>
 
-       <a href="/about">
-           About
-       </a>
+       <a href="/about" class="<%= activePage === 'about' ? 'active' : '' %>">
+        About
+        </a>
 
        <a href="/risk-result">
            Risk Result
@@ -21,9 +21,13 @@
            Student Profile
        </a>
 
-       <a href="/management">
-           Management
-       </a>
+       <a href="/management" class="<%= activePage === 'management' ? 'active' : '' %>">
+        Management
+        </a>
+
+        <a href="/risk-result" class="<%= activePage === 'risk-result' ? 'active' : '' %>">Risk result</a>
+        <a href="/student-form" class="<%= activePage === 'student-form' ? 'active' : '' %>">Student form</a>
+        <a href="/management" class="<%= activePage === 'management' ? 'active' : '' %>">Management</a>
    </div>
 
    <div class="profile-circle">
