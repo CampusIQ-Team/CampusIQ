@@ -25,8 +25,7 @@ const submissionSchema = new mongoose.Schema(
     student: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
-      required: [true, 'Student reference is required'],
-      index: true                         // faster admin queries
+      required: [true, 'Student reference is required'], 
     },
     subjects: {
       type: [subjectSchema],
@@ -86,7 +85,7 @@ const submissionSchema = new mongoose.Schema(
     notes: { 
       type: String
     },
-    
+
     submittedAt: {
       type: Date,
       default: Date.now

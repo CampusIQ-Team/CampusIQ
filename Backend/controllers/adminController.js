@@ -1,4 +1,4 @@
-const Submission = require('../models/Submission');
+const Submission = require('../models/submissions');
 
 const VALID_RISK_LEVELS = ['Low', 'Medium', 'High'];
 
