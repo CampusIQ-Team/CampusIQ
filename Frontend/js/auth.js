@@ -96,7 +96,7 @@ if (registerForm) {
         }
 
         try {
-            const response = await registerUser(name, email, password, role);
+            const response = await registerUser(firstName, lastName, email, password, role);
             showMessage(response.message || "Registration successful! You can now log in.");
             document.querySelector(".container")?.classList.remove("active");
             registerForm.reset();
