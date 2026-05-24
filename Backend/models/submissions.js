@@ -49,6 +49,44 @@ const submissionSchema = new mongoose.Schema(
       },
       default: null
     },
+
+    attendance: { 
+      type: Number, 
+      min: 0, 
+      max: 100, 
+      default: null },
+
+    absenceDays: { 
+      type: Number, 
+      default: 0 },
+
+    absenceReason: { 
+      type: String 
+      },
+
+    assignmentsOnTime: { 
+      type: String
+     },
+
+    missedAssessments: { 
+      type: String },
+
+    studyHours: { 
+      type: String
+    },
+
+    studyFeeling: { 
+      type: String
+    },
+
+    currentSupport: { 
+      type: String
+    },
+
+    notes: { 
+      type: String
+    },
+    
     submittedAt: {
       type: Date,
       default: Date.now
