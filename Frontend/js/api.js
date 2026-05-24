@@ -54,9 +54,10 @@ function loginUser(email, password) {
     return apiRequest("/auth/login", "POST", { email, password });
 }
 
-function registerUser(name, email, password, role = "student") {
+function registerUser(firstName, lastName, email, password, role = "student") {
     return apiRequest("/auth/register", "POST", {
-        name,
+        firstName,
+        lastName,
         email,
         password,
         role
@@ -72,7 +73,7 @@ function submitStudentData(formData) {
 }
 
 function getMySubmissions() {
-    return apiRequest("/submissions/mine");
+    return apiRequest("/submissions/me");
 }
 
 function getAllSubmissions() {
