@@ -1,4 +1,4 @@
-const Submission = require('../models/Submission');
+const Submission = require('../models/submissions');
 
 // @desc    Submit student data (marks + attendance)
 // @route   POST /api/submissions
