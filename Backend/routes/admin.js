@@ -1,15 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const { getAllStudents, getStudentById, exportForPowerBI } = require('../controllers/adminController');
-const { protect, adminOnly } = require('../middleware/authMiddleware');
+const { protect, restrictTo } = require('../middleware/authMiddleware');
 
-// Get all students (with optional ?riskLevel=High filter)
-router.get('/students', protect, adminOnly, getAllStudents);
+// GET /api/admin/students?riskLevel=High&page=1&limit=20 — all student submissions
+// protect: must be logged in
+// restrictTo('admin'): students cannot access admin routes
+router.get('/students', protect, restrictTo('admin'), getAllStudents);
 
-// Get individual student profile
-router.get('/students/:id', protect, adminOnly, getStudentById);
+// GET /api/admin/export/students — flat export for Power BI
+// IMPORTANT: must be above /students/:id so Express doesn't treat 'export' as an :id
+router.get('/export/students', protect, restrictTo('admin'), exportForPowerBI);
 
-// Export data for Power BI
-router.get('/export/students', protect, adminOnly, exportForPowerBI);
+// GET /api/admin/students/:id — single student submission by ID
+router.get('/students/:id', protect, restrictTo('admin'), getStudentById);
 
 module.exports = router;
