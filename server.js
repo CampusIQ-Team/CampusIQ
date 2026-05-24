@@ -56,8 +56,6 @@ app.get('/about', (req, res) => {
   res.render('About');
 });
 
-app.use('/api/submissions', require('./Backend/routes/submissions'));
-
 app.get('/student-form', (req, res) => {
   res.render('StudentForm');
 });
@@ -75,5 +73,5 @@ app.get('/management', (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server on port ${PORT}`));
