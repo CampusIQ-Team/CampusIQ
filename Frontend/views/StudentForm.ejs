@@ -1,0 +1,22 @@
+<form id="data-form" class="student-form">
+    <div class="form-card full">
+      <h2>1. Subjects and marks</h2>
+  
+      <div id="subjects-container">
+        <div class="subject-row">
+          <input class="subject-name" type="text" placeholder="Subject name" required>
+          <input class="subject-mark" type="number" min="0" max="100" placeholder="Mark %" required>
+          <select class="subject-type">
+            <option>Test</option>
+            <option>Exam</option>
+            <option>Assignment</option>
+            <option>Project</option>
+          </select>
+        </div>
+      </div>
+  
+      <button type="button" id="add-subject-btn" class="ghost-btn">+ Add another subject</button>
+    </div>
+  
+    <button type="submit" class="submit-btn">Submit data and view risk result</button>
+  </form>

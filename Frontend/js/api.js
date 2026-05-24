@@ -54,11 +54,32 @@ function loginUser(email, password) {
     return apiRequest("/auth/login", "POST", { email, password });
 }
 
-function registerUser(firstName, lastName, email, password) {
+function registerUser(name, email, password, role = "student") {
     return apiRequest("/auth/register", "POST", {
-        firstName,
-        lastName,
+        name,
         email,
-        password
+        password,
+        role
     });
 }
+
+// ============================================
+// Submissions API Functions
+// ============================================
+
+function submitStudentData(formData) {
+    return apiRequest("/submissions", "POST", formData);
+}
+
+function getMySubmissions() {
+    return apiRequest("/submissions/mine");
+}
+
+function getAllSubmissions() {
+    return apiRequest("/submissions/all");
+}
+
+function getSubmissionById(id) {
+    return apiRequest(`/submissions/${id}`);
+}
+

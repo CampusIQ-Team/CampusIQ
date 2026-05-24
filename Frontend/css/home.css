@@ -1,0 +1,242 @@
+/* =========================================================
+   STATS SECTION
+========================================================= */
+
+.stats-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    padding: 25px 50px;
+}
+
+.stat-card{
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    padding: 20px;
+}
+
+.stat-card p{
+    font-size: 12px;
+    color: #777;
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+
+.stat-value{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.pill{
+    font-size: 11px;
+    padding: 5px 10px;
+
+    border-radius: 20px;
+}
+
+.green{
+    background: #cfe8b4;
+    color: #3c6b12;
+}
+
+.red{
+    background: #f4c0c0;
+    color: #a33333;
+}
+
+.orange{
+    background: #f4d08f;
+    color: #875300;
+}
+
+/* =========================================================
+   CONTENT BOXES
+========================================================= */
+
+.content-box{
+    background: white;
+
+    margin: 0 50px 25px 50px;
+
+    border-radius: 8px;
+    border: 1px solid #ddd;
+
+    padding: 22px;
+}
+
+.section-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.section-top h2{
+    font-size: 22px;
+    margin-bottom: 4px;
+}
+
+.section-top p{
+    color: #777;
+    font-size: 13px;
+}
+
+.view-btn{
+    background: #efefef;
+    color: #222;
+
+    padding: 10px 16px;
+
+    border-radius: 6px;
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+.view-btn:hover{
+    background: #ddd;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead{
+    background: #efede5;
+}
+
+th{
+    text-align: left;
+    padding: 14px;
+    font-size: 13px;
+}
+
+td{
+    padding: 16px 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+/* Risk Labels */
+
+.risk{
+    padding: 5px 12px;
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.high{
+    background: #f4c0c0;
+    color: #9e2f2f;
+}
+
+.medium{
+    background: #f5d08c;
+    color: #875100;
+}
+
+/* =========================================================
+   BREAKDOWN SECTION
+========================================================= */
+
+.breakdown-title{
+    margin-bottom: 20px;
+}
+
+.breakdown-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.breakdown-card{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    padding: 20px;
+}
+
+.breakdown-card h3{
+    margin-bottom: 18px;
+}
+
+.risk-row{
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 12px;
+
+    font-size: 14px;
+}
+
+.progress-bar{
+    width: 100%;
+    height: 8px;
+
+    background: #ececec;
+
+    border-radius: 20px;
+
+    margin-top: 8px;
+}
+
+.progress-fill{
+    height: 100%;
+    border-radius: 20px;
+}
+
+.red-fill{
+    background: #ef8f8f;
+}
+
+.orange-fill{
+    background: #f4bc4b;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width: 1000px){
+
+    .stats-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .breakdown-grid{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media(max-width: 700px){
+
+    .stats-container{
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .content-box{
+        margin: 20px;
+    }
+
+}
