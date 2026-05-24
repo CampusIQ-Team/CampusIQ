@@ -1,0 +1,129 @@
+<%- include("../partials/header", { title: "EduRisk | About" }) %>
+
+<link rel="stylesheet" href="/css/about.css">
+
+<%- include("../partials/navbar", { activePage: "about" }) %>
+
+<section class="about-hero">
+    <span class="about-tag">About EduRisk</span>
+
+    <h1>Built for educators, powered by data</h1>
+
+    <p>
+        EduRisk helps schools identify, track, and support students at risk
+        of falling behind — enabling proactive intervention.
+    </p>
+</section>
+
+<section class="about-section">
+
+    <h2>What we do</h2>
+
+    <div class="about-grid">
+
+        <div class="about-card">
+            <div class="icon-box"></div>
+            <h3>Predictive modelling</h3>
+            <p>
+                Analyses attendance, grades, and engagement to score each
+                student’s risk in real time.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="icon-box"></div>
+            <h3>Automated alerts</h3>
+            <p>
+                Educators receive instant notifications when a student’s
+                risk score crosses a threshold.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="icon-box"></div>
+            <h3>Intervention tracking</h3>
+            <p>
+                Log, assign, and follow up on interventions with a full
+                audit trail per student.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="icon-box"></div>
+            <h3>Progress analytics</h3>
+            <p>
+                Track how risk scores change over time and measure
+                intervention effectiveness.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="icon-box"></div>
+            <h3>POPIA compliant</h3>
+            <p>
+                All student data is handled with strict privacy controls
+                for South African law.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="icon-box"></div>
+            <h3>Role-based access</h3>
+            <p>
+                Teachers see their classes. HODs see departments.
+                Principals see the whole school.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="about-bottom">
+
+    <div class="info-box">
+        <h2>How risk is calculated</h2>
+
+        <div class="risk-row">
+            <span>Attendance rate</span>
+            <strong>35%</strong>
+        </div>
+
+        <div class="risk-row">
+            <span>Assessment performance</span>
+            <strong>30%</strong>
+        </div>
+
+        <div class="risk-row">
+            <span>Class participation</span>
+            <strong>20%</strong>
+        </div>
+
+        <div class="risk-row">
+            <span>Submission rate</span>
+            <strong>15%</strong>
+        </div>
+    </div>
+
+    <div class="info-box">
+        <h2>Risk thresholds</h2>
+
+        <div class="threshold">
+            <span class="risk high">High</span>
+            <p>Score ≥ 70 — immediate action required</p>
+        </div>
+
+        <div class="threshold">
+            <span class="risk medium">Medium</span>
+            <p>Score 40–69 — monitor and support</p>
+        </div>
+
+        <div class="threshold">
+            <span class="risk low">Low</span>
+            <p>Score &lt; 40 — no intervention needed</p>
+        </div>
+    </div>
+
+</section>
+
+<%- include("../partials/footer") %>

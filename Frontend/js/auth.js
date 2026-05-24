@@ -7,9 +7,14 @@ function saveSession(response) {
         localStorage.setItem("campusiq_token", response.token);
     }
 
-    if (response.user) {
-        localStorage.setItem("campusiq_user", JSON.stringify(response.user));
-    }
+    const user = {
+        _id: response._id,
+        name: response.name,
+        email: response.email,
+        role: response.role
+    };
+
+    localStorage.setItem("campusiq_user", JSON.stringify(user));
 }
 
 function isLoggedIn() {
@@ -49,9 +54,8 @@ if (loginForm) {
             saveSession(response);
             showMessage("Login successful!");
 
-            const role = response.user?.role?.toLowerCase();
-            window.location.href = role === "admin" ? "AdminDashboard.html" : "StudentDashboard.html";
-        } catch (error) {
+            const role = response.role?.toLowerCase();
+            window.location.href = role === "admin" ? "/admin-dashboard" : "/student-dashboard";        } catch (error) {
             showMessage(error.message || "Login failed. Please try again.");
         }
     });
@@ -72,6 +76,9 @@ if (registerForm) {
         const email = document.getElementById("registerEmail").value.trim();
         const password = document.getElementById("registerPassword").value;
         const confirmPassword = document.getElementById("confirmPassword").value;
+        const role = document.getElementById("registerRole").value;
+
+        const name = `${firstName} ${lastName}`;
 
         if (!firstName || !lastName || !email || !password) {
             showMessage("Please complete all registration fields.");
@@ -89,13 +96,14 @@ if (registerForm) {
         }
 
         try {
-            const response = await registerUser(firstName, lastName, email, password);
+            const response = await registerUser(name, email, password, role);
             showMessage(response.message || "Registration successful! You can now log in.");
             document.querySelector(".container")?.classList.remove("active");
             registerForm.reset();
         } catch (error) {
             showMessage(error.message || "Registration failed. Please try again.");
         }
+
     });
 }
 
