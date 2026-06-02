@@ -47,8 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.innerHTML += `
             <a href="/admin-dashboard">Dashboard</a>
             <a href="/management">Students</a>
-            <a href="/student-form">Data Input</a>
-            <a href="/risk-result">Risk Reports</a>
             <a href="#" id="logoutBtn">Logout</a>
         `;
     }
