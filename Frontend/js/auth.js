@@ -26,7 +26,7 @@ function isLoggedIn() {
 function logoutUser() {
     localStorage.removeItem("campusiq_token");
     localStorage.removeItem("campusiq_user");
-    window.location.href = "LoginRegister.html";
+    window.location.href = "/login";
 }
 
 function showMessage(message) {

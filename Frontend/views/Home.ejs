@@ -1,241 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusIQ</title>
 
+<head>
+    <%- include("partials/header", { title: "CampusIQ | Home" }) %>
+
+    <link rel="stylesheet" href="/css/theme.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/home.css">
 </head>
+
 <body>
-<%- include("partials/header", { title: "EduRisk | Home" }) %>
 
-<%- include("partials/navbar", { activePage: "home" }) %>
+    <%- include("partials/navbar", { activePage: "home" }) %>
 
-<!-- ======================================================
-     HERO SECTION
-====================================================== -->
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="hero-content">
 
-<section class="hero">
+            <h1>CampusIQ</h1>
 
-    <span class="hero-tag">
-        Early intervention platform
-    </span>
+            <p>
+                Predict academic risk, monitor student performance,
+                and support early intervention.
+            </p>
 
-    <h1>
-        Identify at-risk students before it’s too late
-    </h1>
+            <div class="hero-buttons">
+                <a href="/login" class="btn-primary">
+                    Login
+                </a>
 
-    <p>
-        EduRisk uses predictive analytics to surface students who need
-        support — so educators can intervene early.
-    </p>
+                <a href="/about" class="btn-secondary">
+                    Learn More
+                </a>
+            </div>
 
-    <div class="hero-buttons">
+        </div>
+    </section>
 
-        <a href="/management" class="btn btn-primary">
-            View students
+    <!-- FEATURES -->
+    <section class="features-section">
+
+        <h2>Key Features</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <span>📊</span>
+                <h3>Risk Prediction</h3>
+                <p>
+                    Identify students who may need additional support.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <span>📚</span>
+                <h3>Academic Tracking</h3>
+                <p>
+                    Monitor marks, attendance and performance.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <span>👨‍🏫</span>
+                <h3>Intervention Support</h3>
+                <p>
+                    Assist educators in taking action early.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PLATFORM STATS -->
+    <section class="stats-section">
+
+        <h2>Platform Overview</h2>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h3 id="studentCount">0</h3>
+                <p>Students</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="courseCount">0</h3>
+                <p>Courses</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="predictionCount">0</h3>
+                <p>Predictions</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="successRate">0%</h3>
+                <p>Success Rate</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="process-section">
+
+        <h2>How CampusIQ Works</h2>
+
+        <div class="process-container">
+
+            <div class="process-step">
+                <h3>1</h3>
+                <p>Submit Academic Data</p>
+            </div>
+
+            <div class="process-step">
+                <h3>2</h3>
+                <p>Analyze Performance</p>
+            </div>
+
+            <div class="process-step">
+                <h3>3</h3>
+                <p>Generate Risk Score</p>
+            </div>
+
+            <div class="process-step">
+                <h3>4</h3>
+                <p>Support Intervention</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- USER TYPES -->
+    <section class="roles-section">
+
+        <h2>Who Uses CampusIQ?</h2>
+
+        <div class="roles-grid">
+
+            <div class="role-card">
+                <h3>Students</h3>
+                <p>Track academic progress and performance.</p>
+            </div>
+
+            <div class="role-card">
+                <h3>Lecturers</h3>
+                <p>Monitor students and identify risks.</p>
+            </div>
+
+            <div class="role-card">
+                <h3>Administrators</h3>
+                <p>Manage records and reporting.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+
+        <h2>Ready to Improve Student Success?</h2>
+
+        <a href="/login" class="btn-primary">
+            Get Started
         </a>
 
-        <a href="/about" class="btn btn-secondary">
-            Learn more
-        </a>
+    </section>
 
-    </div>
+    <%- include("partials/footer") %>
 
-</section>
+    <script src="/js/home.js"></script>
 
-<!-- ======================================================
-     STATISTICS CARDS
-====================================================== -->
-
-<section class="stats-container">
-
-    <div class="stat-card">
-
-        <p>Total Students</p>
-
-        <div class="stat-value">
-            1,248
-            <span class="pill green">+32</span>
-        </div>
-
-    </div>
-
-    <div class="stat-card">
-
-        <p>High Risk</p>
-
-        <div class="stat-value">
-            87
-            <span class="pill red">+5</span>
-        </div>
-
-    </div>
-
-    <div class="stat-card">
-
-        <p>Medium Risk</p>
-
-        <div class="stat-value">
-            213
-            <span class="pill orange">+18</span>
-        </div>
-
-    </div>
-
-    <div class="stat-card">
-
-        <p>Interventions Active</p>
-
-        <div class="stat-value">
-            54
-            <span class="pill green">+9</span>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ======================================================
-     RECENT ALERTS
-====================================================== -->
-
-<section class="content-box">
-
-    <div class="section-top">
-
-        <div>
-            <h2>Recent alerts</h2>
-            <p>Students flagged in the last 7 days</p>
-        </div>
-
-        <a href="/management" class="view-btn">
-            View all
-        </a>
-
-    </div>
-
-    <table>
-
-        <thead>
-            <tr>
-                <th>Student</th>
-                <th>Grade</th>
-                <th>Risk Level</th>
-                <th>Factor</th>
-                <th>Flagged</th>
-            </tr>
-        </thead>
-
-        <tbody>
-
-            <tr>
-                <td><strong>Amara Dlamini</strong></td>
-                <td>Grade 10</td>
-                <td><span class="risk high">High</span></td>
-                <td>Attendance 42%</td>
-                <td>2 days ago</td>
-            </tr>
-
-            <tr>
-                <td><strong>Sipho Nkosi</strong></td>
-                <td>Grade 11</td>
-                <td><span class="risk high">High</span></td>
-                <td>Grades declining</td>
-                <td>3 days ago</td>
-            </tr>
-
-            <tr>
-                <td><strong>Lerato Mokoena</strong></td>
-                <td>Grade 9</td>
-                <td><span class="risk medium">Medium</span></td>
-                <td>Missed assessments</td>
-                <td>4 days ago</td>
-            </tr>
-
-            <tr>
-                <td><strong>Thabo Mahlangu</strong></td>
-                <td>Grade 12</td>
-                <td><span class="risk medium">Medium</span></td>
-                <td>Low participation</td>
-                <td>5 days ago</td>
-            </tr>
-
-        </tbody>
-
-    </table>
-
-</section>
-
-<!-- ======================================================
-     RISK BREAKDOWN
-====================================================== -->
-
-<section class="content-box">
-
-    <h2 class="breakdown-title">
-        Risk breakdown by grade
-    </h2>
-
-    <div class="breakdown-grid">
-
-        <!-- LEFT BOX -->
-
-        <div class="breakdown-card">
-
-            <h3>Grade 9 — 312 students</h3>
-
-            <div class="risk-row">
-                <span>High risk</span>
-                <span>14 students</span>
-            </div>
-
-            <div class="progress-bar">
-                <div class="progress-fill red-fill" style="width: 30%;"></div>
-            </div>
-
-            <div class="risk-row">
-                <span>Medium risk</span>
-                <span>41 students</span>
-            </div>
-
-            <div class="progress-bar">
-                <div class="progress-fill orange-fill" style="width: 65%;"></div>
-            </div>
-
-        </div>
-
-        <!-- RIGHT BOX -->
-
-        <div class="breakdown-card">
-
-            <h3>Grade 12 — 298 students</h3>
-
-            <div class="risk-row">
-                <span>High risk</span>
-                <span>31 students</span>
-            </div>
-
-            <div class="progress-bar">
-                <div class="progress-fill red-fill" style="width: 45%;"></div>
-            </div>
-
-            <div class="risk-row">
-                <span>Medium risk</span>
-                <span>67 students</span>
-            </div>
-
-            <div class="progress-bar">
-                <div class="progress-fill orange-fill" style="width: 70%;"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<%- include("partials/footer") %>
 </body>
 </html>

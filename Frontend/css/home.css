@@ -1,242 +1,128 @@
-/* =========================================================
-   STATS SECTION
-========================================================= */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+}
 
-.stats-container{
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: #4f46e5;
+    color: white;
+}
+
+.btn-secondary {
+    border: 2px solid white;
+    background: #827cf8;
+    color: white;
+}
+
+.features-section,
+.stats-section,
+.process-section,
+.roles-section,
+.cta-section {
+    padding: 5rem 2rem;
+}
+
+.features-section h2,
+.stats-section h2,
+.process-section h2,
+.roles-section h2,
+.cta-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.feature-grid,
+.stats-grid,
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.feature-card,
+.stat-card,
+.role-card {
+    background: #119ed6;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.feature-card span {
+    font-size: 2rem;
+}
+
+.stat-card h3 {
+    color: #4f46e5;
+    font-size: 2rem;
+}
+
+.process-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-
-    padding: 25px 50px;
+    gap: 1rem;
 }
 
-.stat-card{
-    background: white;
-
-    border: 1px solid #ddd;
-    border-radius: 8px;
-
-    padding: 20px;
+.process-step {
+    text-align: center;
+    background: #1b1b1b;
+    padding: 2rem;
+    border-radius: 12px;
 }
 
-.stat-card p{
-    font-size: 12px;
-    color: #777;
-    text-transform: uppercase;
-
-    margin-bottom: 10px;
+.process-step h3 {
+    color: #4f46e5;
+    font-size: 2rem;
 }
 
-.stat-value{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    font-size: 32px;
-    font-weight: bold;
+.cta-section {
+    text-align: center;
 }
 
-.pill{
-    font-size: 11px;
-    padding: 5px 10px;
+@media(max-width:768px) {
 
-    border-radius: 20px;
-}
-
-.green{
-    background: #cfe8b4;
-    color: #3c6b12;
-}
-
-.red{
-    background: #f4c0c0;
-    color: #a33333;
-}
-
-.orange{
-    background: #f4d08f;
-    color: #875300;
-}
-
-/* =========================================================
-   CONTENT BOXES
-========================================================= */
-
-.content-box{
-    background: white;
-
-    margin: 0 50px 25px 50px;
-
-    border-radius: 8px;
-    border: 1px solid #ddd;
-
-    padding: 22px;
-}
-
-.section-top{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin-bottom: 20px;
-}
-
-.section-top h2{
-    font-size: 22px;
-    margin-bottom: 4px;
-}
-
-.section-top p{
-    color: #777;
-    font-size: 13px;
-}
-
-.view-btn{
-    background: #efefef;
-    color: #222;
-
-    padding: 10px 16px;
-
-    border-radius: 6px;
-    text-decoration: none;
-
-    font-size: 13px;
-}
-
-.view-btn:hover{
-    background: #ddd;
-}
-
-/* =========================================================
-   TABLE
-========================================================= */
-
-table{
-    width: 100%;
-    border-collapse: collapse;
-}
-
-thead{
-    background: #efede5;
-}
-
-th{
-    text-align: left;
-    padding: 14px;
-    font-size: 13px;
-}
-
-td{
-    padding: 16px 14px;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
-}
-
-/* Risk Labels */
-
-.risk{
-    padding: 5px 12px;
-    border-radius: 20px;
-
-    font-size: 11px;
-    font-weight: bold;
-}
-
-.high{
-    background: #f4c0c0;
-    color: #9e2f2f;
-}
-
-.medium{
-    background: #f5d08c;
-    color: #875100;
-}
-
-/* =========================================================
-   BREAKDOWN SECTION
-========================================================= */
-
-.breakdown-title{
-    margin-bottom: 20px;
-}
-
-.breakdown-grid{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 20px;
-}
-
-.breakdown-card{
-    border: 1px solid #ddd;
-    border-radius: 8px;
-
-    padding: 20px;
-}
-
-.breakdown-card h3{
-    margin-bottom: 18px;
-}
-
-.risk-row{
-    display: flex;
-    justify-content: space-between;
-
-    margin-top: 12px;
-
-    font-size: 14px;
-}
-
-.progress-bar{
-    width: 100%;
-    height: 8px;
-
-    background: #ececec;
-
-    border-radius: 20px;
-
-    margin-top: 8px;
-}
-
-.progress-fill{
-    height: 100%;
-    border-radius: 20px;
-}
-
-.red-fill{
-    background: #ef8f8f;
-}
-
-.orange-fill{
-    background: #f4bc4b;
-}
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media(max-width: 1000px){
-
-    .stats-container{
-        grid-template-columns: repeat(2, 1fr);
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
 
-    .breakdown-grid{
+    .process-container {
         grid-template-columns: 1fr;
     }
 
-}
-
-@media(max-width: 700px){
-
-    .stats-container{
-        grid-template-columns: 1fr;
-        padding: 20px;
+    .hero-buttons {
+        flex-direction: column;
     }
-
-    .content-box{
-        margin: 20px;
-    }
-
 }

@@ -1,23 +1,20 @@
 <nav class="navbar">
 
     <div class="logo">
-      <h2>EduRisk</h2>
+        <h2>CampusIQ</h2>
     </div>
-  
-    <div class="nav-links">
-      <a href="/home" class="<%= activePage === 'home' ? 'active' : '' %>">Home</a>
-  
-      <a href="/about" class="<%= activePage === 'about' ? 'active' : '' %>">About</a>
-  
-      <a href="/student-form" class="<%= activePage === 'student-form' ? 'active' : '' %>">Student Form</a>
-  
-      <a href="/risk-result" class="<%= activePage === 'risk-result' ? 'active' : '' %>">Risk Result</a>
-  
-      <a href="/management" class="<%= activePage === 'management' ? 'active' : '' %>">Management</a>
+
+    <div class="nav-links" id="navLinks">
+
+        <!-- Always visible -->
+        <a href="/home">Home</a>
+
     </div>
-  
-    <div class="profile-circle">
-      AD
+
+    <div class="profile-circle" id="profileCircle">
+        ?
     </div>
-  
-  </nav>
+
+</nav>
+
+<script src="/js/navbar.js"></script>
