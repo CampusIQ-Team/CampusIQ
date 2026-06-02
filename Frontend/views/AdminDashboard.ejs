@@ -1,231 +1,131 @@
-<%- include("partials/header", { title: "EduRisk | Home" }) %>
+<%- include("partials/header", { title: "EduRisk | Admin Dashboard" }) %>
 
-<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/adminDashboard.css">
 
-<%- include("partials/navbar", { activePage: "home" }) %>
+<%- include("partials/navbar", { activePage: "admin-dashboard" }) %>
 
-<!-- ======================================================
-     HERO SECTION
-====================================================== -->
+<main class="admin-page">
 
-<section class="hero">
-
-    <span class="hero-tag">
-        Early intervention platform
-    </span>
-
-    <h1>
-        Identify at-risk students before it’s too late
-    </h1>
-
-    <p>
-        EduRisk uses predictive analytics to surface students who need
-        support — so educators can intervene early.
-    </p>
-
-    <div class="hero-buttons">
-
-        <a href="/management" class="btn btn-primary">
-            View students
-        </a>
-
-        <a href="/about" class="btn btn-secondary">
-            Learn more
-        </a>
-
-    </div>
-
-</section>
-
-<!-- ======================================================
-     STATISTICS CARDS
-====================================================== -->
-
-<section class="stats-container">
-
-    <div class="stat-card">
-
+    <section class="admin-hero">
+      <div>
+        <span class="page-tag">Admin Dashboard</span>
+        <h1>Student Risk Monitoring</h1>
+        <p id="dashboard-summary">Loading student risk data...</p>
+      </div>
+  
+      <a href="/management" class="primary-btn">Manage Students</a>
+    </section>
+  
+    <section class="stats-grid">
+      <div class="stat-card">
         <p>Total Students</p>
-
-        <div class="stat-value">
-            1,248
-            <span class="pill green">+32</span>
-        </div>
-
-    </div>
-
-    <div class="stat-card">
-
+        <h2 id="totalStudents">0</h2>
+      </div>
+  
+      <div class="stat-card danger">
         <p>High Risk</p>
-
-        <div class="stat-value">
-            87
-            <span class="pill red">+5</span>
-        </div>
-
-    </div>
-
-    <div class="stat-card">
-
+        <h2 id="highRisk">0</h2>
+      </div>
+  
+      <div class="stat-card warning">
         <p>Medium Risk</p>
-
-        <div class="stat-value">
-            213
-            <span class="pill orange">+18</span>
+        <h2 id="mediumRisk">0</h2>
+      </div>
+  
+      <div class="stat-card success">
+        <p>Low Risk</p>
+        <h2 id="lowRisk">0</h2>
+      </div>
+    </section>
+  
+    <section class="dashboard-grid">
+  
+      <div class="content-box">
+        <div class="section-top">
+          <div>
+            <h2>Recent Risk Alerts</h2>
+            <p>Students who need attention</p>
+          </div>
+          <a href="/management" class="view-btn">View All</a>
         </div>
-
-    </div>
-
-    <div class="stat-card">
-
-        <p>Interventions Active</p>
-
-        <div class="stat-value">
-            54
-            <span class="pill green">+9</span>
+  
+        <table>
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Email</th>
+              <th>Attendance</th>
+              <th>Average Mark</th>
+              <th>Risk</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+  
+          <tbody id="recent-alerts-body">
+            <tr>
+              <td colspan="6">Loading...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <div class="content-box">
+        <h2>Risk Distribution</h2>
+  
+        <div class="risk-bars">
+          <div>
+            <span>High Risk</span>
+            <div class="bar"><div id="highBar" class="fill high-fill"></div></div>
+          </div>
+  
+          <div>
+            <span>Medium Risk</span>
+            <div class="bar"><div id="mediumBar" class="fill medium-fill"></div></div>
+          </div>
+  
+          <div>
+            <span>Low Risk</span>
+            <div class="bar"><div id="lowBar" class="fill low-fill"></div></div>
+          </div>
         </div>
-
-    </div>
-
-</section>
-
-<!-- ======================================================
-     RECENT ALERTS
-====================================================== -->
-
-<section class="content-box">
-
-    <div class="section-top">
-
+      </div>
+  
+    </section>
+  
+    <section class="content-box">
+      <div class="section-top">
         <div>
-            <h2>Recent alerts</h2>
-            <p>Students flagged in the last 7 days</p>
+          <h2>Quick Actions</h2>
+          <p>Admin tools for managing CampusIQ</p>
         </div>
-
-        <a href="/management" class="view-btn">
-            View all
+      </div>
+  
+      <div class="actions-grid">
+        <a href="/management" class="action-card">
+          <h3>Student Management</h3>
+          <p>View, search and manage student risk records.</p>
         </a>
-
-    </div>
-
-    <table>
-
-        <thead>
-            <tr>
-                <th>Student</th>
-                <th>Grade</th>
-                <th>Risk Level</th>
-                <th>Factor</th>
-                <th>Flagged</th>
-            </tr>
-        </thead>
-
-        <tbody>
-
-            <tr>
-                <td><strong>Amara Dlamini</strong></td>
-                <td>Grade 10</td>
-                <td><span class="risk high">High</span></td>
-                <td>Attendance 42%</td>
-                <td>2 days ago</td>
-            </tr>
-
-            <tr>
-                <td><strong>Sipho Nkosi</strong></td>
-                <td>Grade 11</td>
-                <td><span class="risk high">High</span></td>
-                <td>Grades declining</td>
-                <td>3 days ago</td>
-            </tr>
-
-            <tr>
-                <td><strong>Lerato Mokoena</strong></td>
-                <td>Grade 9</td>
-                <td><span class="risk medium">Medium</span></td>
-                <td>Missed assessments</td>
-                <td>4 days ago</td>
-            </tr>
-
-            <tr>
-                <td><strong>Thabo Mahlangu</strong></td>
-                <td>Grade 12</td>
-                <td><span class="risk medium">Medium</span></td>
-                <td>Low participation</td>
-                <td>5 days ago</td>
-            </tr>
-
-        </tbody>
-
-    </table>
-
-</section>
-
-<!-- ======================================================
-     RISK BREAKDOWN
-====================================================== -->
-
-<section class="content-box">
-
-    <h2 class="breakdown-title">
-        Risk breakdown by grade
-    </h2>
-
-    <div class="breakdown-grid">
-
-        <!-- LEFT BOX -->
-
-        <div class="breakdown-card">
-
-            <h3>Grade 9 — 312 students</h3>
-
-            <div class="risk-row">
-                <span>High risk</span>
-                <span>14 students</span>
-            </div>
-
-            <div class="progress-bar">
-                <div class="progress-fill red-fill" style="width: 30%;"></div>
-            </div>
-
-            <div class="risk-row">
-                <span>Medium risk</span>
-                <span>41 students</span>
-            </div>
-
-            <div class="progress-bar">
-                <div class="progress-fill orange-fill" style="width: 65%;"></div>
-            </div>
-
-        </div>
-
-        <!-- RIGHT BOX -->
-
-        <div class="breakdown-card">
-
-            <h3>Grade 12 — 298 students</h3>
-
-            <div class="risk-row">
-                <span>High risk</span>
-                <span>31 students</span>
-            </div>
-
-            <div class="progress-bar">
-                <div class="progress-fill red-fill" style="width: 45%;"></div>
-            </div>
-
-            <div class="risk-row">
-                <span>Medium risk</span>
-                <span>67 students</span>
-            </div>
-
-            <div class="progress-bar">
-                <div class="progress-fill orange-fill" style="width: 70%;"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<%- include("partials/footer") %>
+  
+        <a href="/student-form" class="action-card">
+          <h3>Add Student Data</h3>
+          <p>Capture marks, attendance and support information.</p>
+        </a>
+  
+        <a href="/risk-result" class="action-card">
+          <h3>Risk Results</h3>
+          <p>View calculated academic risk results.</p>
+        </a>
+  
+        <a href="/api/admin/export/students" class="action-card">
+          <h3>Export Data</h3>
+          <p>Export student data for reports or Power BI.</p>
+        </a>
+      </div>
+    </section>
+  
+  </main>
+  
+  <script src="/js/api.js"></script>
+  <script src="/js/adminDashboard.js"></script>
+  
+  <%- include("partials/footer") %>
