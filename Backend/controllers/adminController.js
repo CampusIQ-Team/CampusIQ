@@ -86,14 +86,23 @@ const exportForPowerBI = async (req, res) => {
 
       for (const subject of sub.subjects) {
         exportData.push({
-          studentName:    sub.student.name,
-          studentEmail:   sub.student.email,
-          riskScore:      sub.riskScore ?? 'Pending',
-          riskLevel:      sub.riskLevel ?? 'Pending',
-          subjectName:    subject.name,
-          subjectMark:    subject.mark,
-          subjectAttendance: subject.attendance,
-          submittedAt:    sub.submittedAt
+          studentName:          sub.student.name,
+          studentEmail:         sub.student.email,
+          riskScore:            sub.riskScore ?? 'Pending',
+          riskLevel:            sub.riskLevel ?? 'Pending',
+          subjectName:          subject.name,
+          subjectMark:          subject.mark,
+          subjectAttendance:    subject.attendance,
+          overallAttendance:    sub.attendance ?? 'N/A',
+          absenceDays:          sub.absenceDays ?? 0,
+          absenceReason:        sub.absenceReason ?? 'N/A',
+          assignmentsOnTime:    sub.assignmentsOnTime ?? 'N/A',
+          missedAssessments:    sub.missedAssessments ?? 'N/A',
+          studyHours:           sub.studyHours ?? 'N/A',
+          studyFeeling:         sub.studyFeeling ?? 'N/A',
+          currentSupport:       sub.currentSupport ?? 'N/A',
+          notes:                sub.notes ?? 'N/A',
+          submittedAt:          sub.submittedAt
         });
       }
     }
