@@ -1,0 +1,32 @@
+<%- include("../partials/header", { title: "EduRisk | Student Profile" }) %>
+
+<link rel="stylesheet" href="/css/management.css">
+
+<%- include("../partials/navbar", { activePage: "management" }) %>
+
+<section class="management-hero">
+  <div>
+    <h1>Student Profile</h1>
+    <p id="student-profile-meta">Loading student details...</p>
+  </div>
+</section>
+
+<section class="management-box">
+  <h2 id="student-name">Student Name</h2>
+  <p><strong>Email:</strong> <span id="student-email">--</span></p>
+  <p><strong>Risk Score:</strong> <span id="risk-score">--</span></p>
+  <p><strong>Risk Level:</strong> <span id="risk-level" class="risk">--</span></p>
+  <p><strong>Average Mark:</strong> <span id="avg-mark">--</span>%</p>
+  <p><strong>Attendance:</strong> <span id="attendance">--</span>%</p>
+
+  <h2>Subjects</h2>
+  <ul id="subjects-list"></ul>
+
+  <h2>Recommendations</h2>
+  <ul id="recommendations-list"></ul>
+</section>
+
+<script src="/js/api.js"></script>
+<script src="/js/studentProfile.js"></script>
+
+<%- include("../partials/footer") %>

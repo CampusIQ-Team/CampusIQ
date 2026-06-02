@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-  res.render('home');
+  res.render('Home');
 });
 
 app.get('/login', (req, res) => {
@@ -49,7 +49,7 @@ app.get('/admin-dashboard', (req, res) => {
 });
 
 app.get('/student-dashboard', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Frontend', 'views', 'StudentDashboard.html'));
+  res.render('StudentDashboard');
 });
 
 app.get('/about', (req, res) => {

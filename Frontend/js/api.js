@@ -70,17 +70,17 @@ function registerUser(firstName, lastName, email, password, role = "student") {
 
 function submitStudentData(formData) {
     return apiRequest("/submissions", "POST", formData);
-}
-
-function getMySubmissions() {
+  }
+  
+  function getMySubmissions() {
     return apiRequest("/submissions/me");
-}
-
-function getAllSubmissions() {
-    return apiRequest("/submissions/all");
-}
-
-function getSubmissionById(id) {
-    return apiRequest(`/submissions/${id}`);
-}
+  }
+  
+  function getAllSubmissions() {
+    return apiRequest("/admin/students");
+  }
+  
+  function getSubmissionById(id) {
+    return apiRequest(`/admin/students/${id}`);
+  }
 

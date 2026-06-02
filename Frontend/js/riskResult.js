@@ -1,50 +1,62 @@
 function paintResult(submission) {
-  const scoreEl    = document.getElementById('risk-score');
-  const levelEl    = document.getElementById('risk-level');
-  const titleEl    = document.getElementById('result-title');
-  const metaEl     = document.getElementById('student-meta');
+  document.getElementById('risk-score').textContent = submission.riskScore ?? '--';
+  document.getElementById('avg-mark').textContent = submission.avgMark ?? '--';
+  document.getElementById('attendance-value').textContent = submission.attendance ?? '--';
 
-  const score    = submission.riskScore ?? '--';
-  const level    = submission.riskLevel  ?? 'Pending';
-  const dateStr  = new Date(submission.submittedAt).toLocaleDateString('en-ZA', {day: 'numeric', month: 'long', year: 'numeric'
-  });
+  const levelEl = document.getElementById('risk-level');
+  const level = submission.riskLevel || 'Pending';
 
-  if (scoreEl) scoreEl.textContent = score;
-
-  if (levelEl) {
-    levelEl.textContent = level;
-    levelEl.className = 'risk-pill'; // reset classes
-    if (level === 'High')   levelEl.classList.add('high');
-    if (level === 'Medium') levelEl.classList.add('medium');
-    if (level === 'Low')    levelEl.classList.add('low');
-  }
+  levelEl.textContent = level;
+  levelEl.className = `risk ${level.toLowerCase()}`;
 
   const titleMap = {
-    High:   'You are at high risk',
+    High: 'You are at high risk',
     Medium: 'You are at moderate risk',
-    Low:    'You are in good standing',
-    Pending:'Your result is being processed'
+    Low: 'You are in good standing',
+    Pending: 'Your result is being processed'
   };
-  if (titleEl) titleEl.textContent = titleMap[level] ?? 'Result available';
-  if (metaEl)  metaEl.textContent  = `Submitted on ${dateStr}`;
+
+  document.getElementById('result-title').textContent = titleMap[level] || 'Result available';
+
+  const dateStr = new Date(submission.submittedAt).toLocaleDateString('en-ZA', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+
+  document.getElementById('student-meta').textContent = `Submitted on ${dateStr}`;
+
+  const list = document.getElementById('recommendations-list');
+  list.innerHTML = '';
+
+  const recommendations = submission.recommendations || [];
+
+  recommendations.forEach(rec => {
+    const li = document.createElement('li');
+    li.textContent = rec;
+    list.appendChild(li);
+  });
 }
 
 async function loadResult() {
   if (!localStorage.getItem('campusiq_token')) {
-    return window.location.href = '/login';
+    window.location.href = '/login';
+    return;
   }
 
   try {
     const data = await getMySubmissions();
-    const submissions = data.submissions ?? [];
+    const submissions = data.submissions || [];
 
     if (submissions.length === 0) {
-      return window.location.href = '/student-form';
+      window.location.href = '/student-form';
+      return;
     }
 
     paintResult(submissions[0]);
-  } catch (err) {
-    console.error('loadResult error:', err);
+
+  } catch (error) {
+    alert(error.message);
   }
 }
 

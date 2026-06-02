@@ -7,12 +7,14 @@ function saveSession(response) {
         localStorage.setItem("campusiq_token", response.token);
     }
 
-    const user = {
-        _id: response._id,
-        name: response.name,
-        email: response.email,
-        role: response.role
-    };
+    // const user = {
+    //     _id: response._id,
+    //     name: response.name,
+    //     email: response.email,
+    //     role: response.role
+    // };
+
+    const user = response.user;
 
     localStorage.setItem("campusiq_user", JSON.stringify(user));
 }
@@ -54,7 +56,7 @@ if (loginForm) {
             saveSession(response);
             showMessage("Login successful!");
 
-            const role = response.role?.toLowerCase();
+            const role = response.user?.role?.toLowerCase();
             window.location.href = role === "admin" ? "/admin-dashboard" : "/student-dashboard";        } catch (error) {
             showMessage(error.message || "Login failed. Please try again.");
         }

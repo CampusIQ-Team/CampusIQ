@@ -1,22 +1,97 @@
-<form id="data-form" class="student-form">
-    <div class="form-card full">
-      <h2>1. Subjects and marks</h2>
-  
-      <div id="subjects-container">
-        <div class="subject-row">
-          <input class="subject-name" type="text" placeholder="Subject name" required>
-          <input class="subject-mark" type="number" min="0" max="100" placeholder="Mark %" required>
-          <select class="subject-type">
-            <option>Test</option>
-            <option>Exam</option>
-            <option>Assignment</option>
-            <option>Project</option>
-          </select>
-        </div>
+<%- include("../partials/header", { title: "EduRisk | Student Form" }) %>
+
+<link rel="stylesheet" href="/css/management.css">
+
+<%- include("../partials/navbar", { activePage: "student-form" }) %>
+
+<section class="management-hero">
+  <div>
+    <h1>Student Data Input Form</h1>
+    <p>Submit your marks, attendance and study information for risk analysis.</p>
+  </div>
+</section>
+
+<section class="management-box">
+  <form id="data-form" class="student-form">
+
+    <h2>Subjects and Marks</h2>
+
+    <div id="subjects-container">
+      <div class="subject-row">
+        <input class="subject-name" type="text" placeholder="Subject name" required>
+        <input class="subject-mark" type="number" min="0" max="100" placeholder="Mark %" required>
+
+        <select class="subject-type">
+          <option>Test</option>
+          <option>Exam</option>
+          <option>Assignment</option>
+          <option>Project</option>
+        </select>
       </div>
-  
-      <button type="button" id="add-subject-btn" class="ghost-btn">+ Add another subject</button>
     </div>
-  
-    <button type="submit" class="submit-btn">Submit data and view risk result</button>
+
+    <button type="button" id="add-subject-btn" class="view-btn">+ Add another subject</button>
+
+    <br><br>
+
+    <h2>Attendance and Study Information</h2>
+
+    <input id="attendance" type="number" min="0" max="100" placeholder="Overall attendance %" required>
+    <input id="absence-days" type="number" min="0" placeholder="Absence days">
+
+    <select id="absence-reason" required>
+      <option value="">Reason for absence</option>
+      <option>None</option>
+      <option>Illness</option>
+      <option>Transport issues</option>
+      <option>Family responsibility</option>
+      <option>Other</option>
+    </select>
+
+    <select id="assignments-on-time" required>
+      <option value="">Assignments submitted on time?</option>
+      <option>Always</option>
+      <option>Sometimes</option>
+      <option>Rarely</option>
+    </select>
+
+    <select id="missed-assess" required>
+      <option value="">Missed assessments?</option>
+      <option>No</option>
+      <option>Yes</option>
+    </select>
+
+    <select id="study-hours" required>
+      <option value="">Weekly study hours</option>
+      <option>Less than 5 hours</option>
+      <option>5 - 10 hours</option>
+      <option>More than 10 hours</option>
+    </select>
+
+    <select id="study-feeling" required>
+      <option value="">How do you feel about your studies?</option>
+      <option>Confident</option>
+      <option>Neutral</option>
+      <option>Struggling</option>
+    </select>
+
+    <select id="current-support" required>
+      <option value="">Current academic support</option>
+      <option>No support yet</option>
+      <option>Tutor</option>
+      <option>Lecturer consultation</option>
+      <option>Study group</option>
+    </select>
+
+    <textarea id="notes" placeholder="Extra notes"></textarea>
+
+    <br><br>
+
+    <button type="submit" class="add-btn">Submit data and view risk result</button>
   </form>
+</section>
+
+<script src="/js/api.js"></script>
+<script src="/js/studentForm.js"></script>
+
+<%- include("../partials/footer") %>
