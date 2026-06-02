@@ -5,24 +5,60 @@
 <%- include("partials/navbar", { activePage: "management" }) %>
 
 <section class="management-hero">
-    <div>
-        <h1>Student management</h1>
-        <p>1,248 students · 87 high risk · 213 medium risk</p>
-    </div>
+  <div>
+    <h1>Student Management</h1>
+    <p id="management-summary">Loading student records...</p>
+  </div>
+
+  <button id="open-add-modal" class="add-btn" type="button">+ Add Student</button>
+</section>
+
+<section class="management-stats">
+  <div class="mini-card">
+    <span>Total Students</span>
+    <strong id="stat-total">0</strong>
+  </div>
+
+  <div class="mini-card high-card">
+    <span>High Risk</span>
+    <strong id="stat-high">0</strong>
+  </div>
+
+  <div class="mini-card medium-card">
+    <span>Medium Risk</span>
+    <strong id="stat-medium">0</strong>
+  </div>
+
+  <div class="mini-card low-card">
+    <span>Low Risk</span>
+    <strong id="stat-low">0</strong>
+  </div>
 </section>
 
 <section class="management-box">
-    <div class="management-top">
-      <input id="student-search" type="text" placeholder="Search by name, email, or ID...">
-  
-      <div class="filter-buttons">
-        <button class="active" data-risk="all">All</button>
-        <button data-risk="high">High risk</button>
-        <button data-risk="medium">Medium</button>
-        <button data-risk="low">Low risk</button>
-      </div>
+  <div class="management-top">
+    <input id="student-search" type="text" placeholder="Search by name, email, or ID...">
+
+    <div class="filter-buttons">
+      <button class="active" data-risk="all">All</button>
+      <button data-risk="high">High risk</button>
+      <button data-risk="medium">Medium</button>
+      <button data-risk="low">Low risk</button>
     </div>
-  
+  </div>
+
+  <div class="table-tools">
+    <p id="table-count">Showing 0 students</p>
+
+    <select id="sort-select">
+      <option value="newest">Newest first</option>
+      <option value="name">Name A-Z</option>
+      <option value="risk">Highest risk first</option>
+      <option value="mark-low">Lowest average mark</option>
+    </select>
+  </div>
+
+  <div class="table-wrapper">
     <table>
       <thead>
         <tr>
@@ -31,14 +67,115 @@
           <th>Attendance</th>
           <th>Avg Grade</th>
           <th>Risk</th>
-          <th>Action</th>
+          <th>Actions</th>
         </tr>
       </thead>
-      <tbody id="students-body"></tbody>
-    </table>
-  </section>
 
-  <script src="/js/api.js"></script>
-  <script src="/js/adminDashboard.js"></script>
-  
-  <%- include("partials/footer") %>
+      <tbody id="students-body">
+        <tr>
+          <td colspan="6">Loading...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div id="student-modal" class="modal hidden">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div>
+        <h2 id="modal-title">Add Student</h2>
+        <p id="modal-subtitle">Create a student account and risk record.</p>
+      </div>
+
+      <button id="close-modal" type="button" class="close-btn">×</button>
+    </div>
+
+    <form id="management-form">
+      <input type="hidden" id="edit-id">
+
+      <div class="form-grid">
+        <div>
+          <label>Full Name</label>
+          <input id="student-name" type="text" required>
+        </div>
+
+        <div>
+          <label>Email</label>
+          <input id="student-email" type="email" required>
+        </div>
+
+        <div id="password-group">
+          <label>Password</label>
+          <input id="student-password" type="password" placeholder="Minimum 6 characters">
+        </div>
+
+        <div>
+          <label>Overall Attendance %</label>
+          <input id="student-attendance" type="number" min="0" max="100" required>
+        </div>
+      </div>
+
+      <h3>Subjects</h3>
+      <div id="modal-subjects"></div>
+
+      <button id="add-modal-subject" class="secondary-btn" type="button">
+        + Add Subject
+      </button>
+
+      <div class="form-grid extra-fields">
+        <div>
+          <label>Assignments Submitted On Time</label>
+          <select id="assignments-on-time">
+            <option>All of them (100%)</option>
+            <option>Most of them (75-99%)</option>
+            <option>About half (50-74%)</option>
+            <option>Less than half (below 50%)</option>
+            <option>None submitted</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Missed Assessments</label>
+          <select id="missed-assessments">
+            <option>No</option>
+            <option>Yes - 1 to 2</option>
+            <option>Yes - 3 or more</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Study Hours</label>
+          <select id="study-hours">
+            <option>Less than 5 hours</option>
+            <option>5 - 10 hours</option>
+            <option>More than 10 hours</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Current Support</label>
+          <select id="current-support">
+            <option>No support yet</option>
+            <option>Peer support</option>
+            <option>Tutor support</option>
+            <option>Lecturer support</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Notes</label>
+      <textarea id="student-notes" rows="3"></textarea>
+
+      <div class="modal-actions">
+        <button id="cancel-modal" type="button" class="secondary-btn">Cancel</button>
+        <button type="submit" class="save-btn">Save Student</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/management.js"></script>
+
+<%- include("partials/footer") %>

@@ -84,3 +84,14 @@ function submitStudentData(formData) {
     return apiRequest(`/admin/students/${id}`);
   }
 
+  function createStudentByAdmin(studentData) {
+    return apiRequest("/admin/students", "POST", studentData);
+  }
+  
+  function updateStudentByAdmin(id, studentData) {
+    return apiRequest(`/admin/students/${id}`, "PUT", studentData);
+  }
+  
+  function deleteStudentByAdmin(id) {
+    return apiRequest(`/admin/students/${id}`, "DELETE");
+  }
