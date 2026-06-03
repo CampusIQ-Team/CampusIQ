@@ -2,54 +2,80 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./Backend/config/db');
+const path = require('path');
 
-// ─── Connect to Database ───────────────────────────────────────────────────
 connectDB();
 
-// ─── App Setup ────────────────────────────────────────────────────────────
 const app = express();
 
-app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
-  credentials: true
-}));
+
+app.use(cors());
 app.use(express.json());
 
-// ─── Routes ───────────────────────────────────────────────────────────────
-const authRoutes       = require('./Backend/routes/auth');
+app.set('view engine', 'ejs');
+app.set(
+  'views', 
+  path.join(__dirname, 'Frontend', 'views')
+);
+
+app.use(
+  express.static(path.join(__dirname, 'Frontend'))
+);
+
+// Routes ==================================================
+const authRoutes = require('./Backend/routes/auth');
+app.use('/api/auth', authRoutes);
 const submissionRoutes = require('./Backend/routes/submissions');
-const adminRoutes      = require('./Backend/routes/admin');
+const adminRoutes = require('./Backend/routes/admin');
 
-app.use('/api/auth',        authRoutes);
 app.use('/api/submissions', submissionRoutes);
-app.use('/api/admin',       adminRoutes);
+app.use('/api/admin', adminRoutes);
 
-// ─── Health Check ─────────────────────────────────────────────────────────
 app.get('/', (req, res) => {
-  res.json({ message: 'CampusIQ API running' });
+  //res.json({ message: 'CampusIQ API running' });
+  res.redirect('/home');
 });
 
-// ─── 404 Handler (unknown routes) ─────────────────────────────────────────
-app.use((req, res) => {
-  res.status(404).json({ message: `Route ${req.originalUrl} not found` });
+app.get('/home', (req, res) => {
+  res.render('Home');
 });
 
-// ─── Global Error Handler ──────────────────────────────────────────────────
-app.use((err, req, res, next) => {
-  console.error('Unhandled error:', err.stack);
-  res.status(err.status || 500).json({
-    message: err.message || 'Something went wrong. Please try again later.'
-  });
+app.get('/login', (req, res) => {
+  res.render('LoginRegister');
+});
+
+app.get('/admin-dashboard', (req, res) => {
+  res.render('AdminDashboard');
+});
+
+app.get('/student-dashboard', (req, res) => {
+  res.render('StudentDashboard');
+});
+
+app.get('/about', (req, res) => {
+  res.render('About');
+});
+
+app.get('/student-form', (req, res) => {
+  res.render('StudentForm');
+});
+
+app.get('/risk-result', (req, res) => {
+  res.render('RiskResult');
+});
+
+app.get('/student-profile', (req, res) => {
+  res.render('StudentProfile');
 });
 
 // ─── Start Server ─────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`CampusIQ API running on port ${PORT}`);
+app.get('/management', (req, res) => {
+  res.render('Management');
 });
 
-// ─── Graceful Shutdown ────────────────────────────────────────────────────
-process.on('unhandledRejection', (err) => {
-  console.error('Unhandled rejection:', err.message);
-  server.close(() => process.exit(1));
-});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server on port ${PORT}`));

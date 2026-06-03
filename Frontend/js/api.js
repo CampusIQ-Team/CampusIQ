@@ -2,7 +2,7 @@
 // CampusIQ API Configuration
 // ============================================
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "http://localhost:3000/api";
 
 function getAuthToken() {
     return localStorage.getItem("campusiq_token");
@@ -54,11 +54,42 @@ function loginUser(email, password) {
     return apiRequest("/auth/login", "POST", { email, password });
 }
 
-function registerUser(firstName, lastName, email, password) {
+function registerUser(firstName, lastName, email, password, role = "student") {
     return apiRequest("/auth/register", "POST", {
         firstName,
         lastName,
         email,
-        password
+        password,
+        role
     });
+}
+
+// ============================================
+// Submissions API Functions
+// ============================================
+
+function submitStudentData(formData) {
+    return apiRequest("/submissions", "POST", formData);
+  }
+  
+  function getMySubmissions() {
+    return apiRequest("/submissions/me");
+  }
+  
+  function getAllSubmissions() {
+    return apiRequest("/admin/students");
+  }
+  
+  function getSubmissionById(id) {
+    return apiRequest(`/admin/students/${id}`);
+  }
+function updateStudentByAdmin(id, studentData) {
+    return apiRequest(`/admin/students/${id}`, "PUT", studentData);
+}
+
+function deleteStudentByAdmin(id) {
+    return apiRequest(`/admin/students/${id}`, "DELETE");
+}
+ function exportStudentsData() {
+    return apiRequest("/admin/export/students");
 }

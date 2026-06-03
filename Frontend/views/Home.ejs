@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/header", { title: "CampusIQ | Home" }) %>
+
+    <link rel="stylesheet" href="/css/theme.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+
+    <%- include("partials/navbar", { activePage: "home" }) %>
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="hero-content">
+
+            <h1>CampusIQ</h1>
+
+            <p>
+                Predict academic risk, monitor student performance,
+                and support early intervention.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="/login" class="btn-primary">
+                    Login
+                </a>
+
+                <a href="/about" class="btn-secondary">
+                    Learn More
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+
+        <h2>Key Features</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <span>📊</span>
+                <h3>Risk Prediction</h3>
+                <p>
+                    Identify students who may need additional support.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <span>📚</span>
+                <h3>Academic Tracking</h3>
+                <p>
+                    Monitor marks, attendance and performance.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <span>👨‍🏫</span>
+                <h3>Intervention Support</h3>
+                <p>
+                    Assist educators in taking action early.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PLATFORM STATS -->
+    <section class="stats-section">
+
+        <h2>Platform Overview</h2>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h3 id="studentCount">0</h3>
+                <p>Students</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="courseCount">0</h3>
+                <p>Courses</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="predictionCount">0</h3>
+                <p>Predictions</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="successRate">0%</h3>
+                <p>Success Rate</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="process-section">
+
+        <h2>How CampusIQ Works</h2>
+
+        <div class="process-container">
+
+            <div class="process-step">
+                <h3>1</h3>
+                <p>Submit Academic Data</p>
+            </div>
+
+            <div class="process-step">
+                <h3>2</h3>
+                <p>Analyze Performance</p>
+            </div>
+
+            <div class="process-step">
+                <h3>3</h3>
+                <p>Generate Risk Score</p>
+            </div>
+
+            <div class="process-step">
+                <h3>4</h3>
+                <p>Support Intervention</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- USER TYPES -->
+    <section class="roles-section">
+
+        <h2>Who Uses CampusIQ?</h2>
+
+        <div class="roles-grid">
+
+            <div class="role-card">
+                <h3>Students</h3>
+                <p>Track academic progress and performance.</p>
+            </div>
+
+            <div class="role-card">
+                <h3>Lecturers</h3>
+                <p>Monitor students and identify risks.</p>
+            </div>
+
+            <div class="role-card">
+                <h3>Administrators</h3>
+                <p>Manage records and reporting.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+
+        <h2>Ready to Improve Student Success?</h2>
+
+        <a href="/login" class="btn-primary">
+            Get Started
+        </a>
+
+    </section>
+
+    <%- include("partials/footer") %>
+
+    <script src="/js/home.js"></script>
+
+</body>
+</html>

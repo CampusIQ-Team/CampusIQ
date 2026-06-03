@@ -1,11 +1,21 @@
-const Submission = require('../models/Submission');
+const Submission = require('../models/submissions');
+const { calculateRisk } = require('../services/riskEngine');
 
 // @desc    Submit student data (marks + attendance)
 // @route   POST /api/submissions
 // @access  Private (student)
 const submitStudentData = async (req, res) => {
   try {
-    const { subjects } = req.body;
+    const { 
+  subjects, 
+  attendance, 
+  assignmentsOnTime, 
+  missedAssessments, 
+  studyHours, 
+  studyFeeling, 
+  currentSupport, 
+  notes 
+} = req.body;
 
     // Validate subjects array
     if (!Array.isArray(subjects) || subjects.length === 0) {
@@ -39,11 +49,25 @@ const submitStudentData = async (req, res) => {
       });
     }
 
+  
     // Create submission
     const submission = await Submission.create({
       student: req.user._id,
-      subjects
+      subjects,
+      attendance,
+      assignmentsOnTime,
+      missedAssessments,
+      studyHours,
+      studyFeeling,
+      currentSupport,
+      notes
     });
+
+    // Calculate risk immediately after save
+    const { riskScore, riskLevel, avgMark } = calculateRisk(submission);
+    submission.riskScore = riskScore;
+    submission.riskLevel = riskLevel;
+    await submission.save();
 
     res.status(201).json({
       message: 'Submission successful',

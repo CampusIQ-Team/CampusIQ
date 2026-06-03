@@ -7,9 +7,16 @@ function saveSession(response) {
         localStorage.setItem("campusiq_token", response.token);
     }
 
-    if (response.user) {
-        localStorage.setItem("campusiq_user", JSON.stringify(response.user));
-    }
+    // const user = {
+    //     _id: response._id,
+    //     name: response.name,
+    //     email: response.email,
+    //     role: response.role
+    // };
+
+    const user = response.user;
+
+    localStorage.setItem("campusiq_user", JSON.stringify(user));
 }
 
 function isLoggedIn() {
@@ -19,7 +26,7 @@ function isLoggedIn() {
 function logoutUser() {
     localStorage.removeItem("campusiq_token");
     localStorage.removeItem("campusiq_user");
-    window.location.href = "LoginRegister.html";
+    window.location.href = "/login";
 }
 
 function showMessage(message) {
@@ -50,8 +57,7 @@ if (loginForm) {
             showMessage("Login successful!");
 
             const role = response.user?.role?.toLowerCase();
-            window.location.href = role === "admin" ? "AdminDashboard.html" : "StudentDashboard.html";
-        } catch (error) {
+            window.location.href = role === "admin" ? "/admin-dashboard" : "/student-dashboard";        } catch (error) {
             showMessage(error.message || "Login failed. Please try again.");
         }
     });
@@ -72,6 +78,9 @@ if (registerForm) {
         const email = document.getElementById("registerEmail").value.trim();
         const password = document.getElementById("registerPassword").value;
         const confirmPassword = document.getElementById("confirmPassword").value;
+        const role = document.getElementById("registerRole").value;
+
+        const name = `${firstName} ${lastName}`;
 
         if (!firstName || !lastName || !email || !password) {
             showMessage("Please complete all registration fields.");
@@ -89,13 +98,14 @@ if (registerForm) {
         }
 
         try {
-            const response = await registerUser(firstName, lastName, email, password);
+            const response = await registerUser(firstName, lastName, email, password, role);
             showMessage(response.message || "Registration successful! You can now log in.");
             document.querySelector(".container")?.classList.remove("active");
             registerForm.reset();
         } catch (error) {
             showMessage(error.message || "Registration failed. Please try again.");
         }
+
     });
 }
 

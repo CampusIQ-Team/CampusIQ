@@ -1,0 +1,97 @@
+<%- include("partials/header", { title: "EduRisk | Home" }) %>
+
+<link rel="stylesheet" href="/css/studentDashboard.css">
+
+<%- include("partials/navbar", { activePage: "home" }) %>
+
+<!-- ======================================================
+     HERO SECTION
+====================================================== -->
+
+<section class="student-dashboard">
+
+    <div class="welcome-box">
+        <div>
+            <span class="dashboard-tag">Student Academic Dashboard</span>
+            <h1 id="studentName">Welcome, Student</h1>
+            <p>Track your courses, marks, attendance, and academic risk status.</p>
+        </div>
+
+        <a href="/student-form" class="profile-btn">Submit / Update Data</a>
+    </div>
+
+    <section class="summary-grid">
+        <div class="summary-card">
+            <p>Average Mark</p>
+            <h2 id="averageMark">0%</h2>
+        </div>
+
+        <div class="summary-card">
+            <p>Average Attendance</p>
+            <h2 id="averageAttendance">0%</h2>
+        </div>
+
+        <div class="summary-card">
+            <p>Risk Level</p>
+            <h2 id="riskLevel">N/A</h2>
+        </div>
+
+        <div class="summary-card">
+            <p>Total Courses</p>
+            <h2 id="totalCourses">0</h2>
+        </div>
+    </section>
+
+    <section class="content-box">
+        <div class="section-top">
+            <div>
+                <h2>My Courses and Marks</h2>
+                <p>Your latest academic performance from the database</p>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Mark</th>
+                    <th>Attendance</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="coursesTable">
+                <tr>
+                    <td colspan="4">Loading courses...</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="content-box">
+        <h2>Course Progress</h2>
+        <div class="course-progress" id="courseProgress"></div>
+    </section>
+
+    <section class="dashboard-bottom">
+        <div class="content-box">
+            <h2>Academic Risk Prediction</h2>
+            <div class="risk-card" id="riskCard">
+                <h3 id="riskTitle">N/A</h3>
+                <p id="riskMessage">Submit your marks and attendance to view your risk result.</p>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h2>Recommendations</h2>
+            <ul class="alerts-list" id="recommendations">
+                <li>No recommendations yet.</li>
+            </ul>
+        </div>
+    </section>
+
+</section>
+
+<script src="/js/studentDashboard.js"></script>
+
+<%- include("partials/footer") %>

@@ -9,14 +9,16 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 20px 0;
     background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
 }
 
 .container{
     position: relative;
     width: 850px;
-    height: 550px;
-    background:var(--white);
+    min-height: 650px;
+    height: auto;
+    background: var(--white);
     border-radius: 30px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 2);
     overflow: hidden;
@@ -27,7 +29,7 @@ body{
     margin: -10px 0;
 }
 .container p {
-    font-size: 14;
+    font-size: 14px;
     margin: 15px 0;
 }
 
@@ -83,6 +85,21 @@ form{
     transform: translateY(-50%);
     font-size: 20px;
     color: var(--primary-blue);
+}
+.input-box select {
+    width: 100%;
+    padding: 13px 50px 13px 20px;
+    background: #eef3f8;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: var(--text-dark);
+    font-weight: 500;
+    
+}
+.input-box select option {
+    color: #333;
 }
 
 .forgot-link{
@@ -205,7 +222,7 @@ form{
 
 @media screen and (max-width: 650px) {
     .container {
-        height: calc(100vh - 40px);
+        height: auto;
     }
 
     .form-box{
@@ -256,7 +273,7 @@ form{
 
 @media screen and (max-width: 450px) {
     .container {
-        height: calc(100vh - 40px);
+        height: auto;
     }
 
     .form-box{
