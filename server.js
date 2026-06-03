@@ -68,6 +68,10 @@ app.get('/student-profile', (req, res) => {
   res.render('StudentProfile');
 });
 
+// ─── Start Server ─────────────────────────────────────────────────────────
+const PORT = process.env.PORT || 3000;
+const server = app.listen(PORT, () => {
+  console.log(`CampusIQ API running on port ${PORT}`);
 app.get('/management', (req, res) => {
   res.render('Management');
 });
