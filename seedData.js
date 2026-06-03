@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const Submission = require('./models/submissions');
-const User = require('./models/User');
+const Submission = require('./Backend/models/submissions');
+const User = require('./Backend/models/User');
 const bcrypt = require('bcryptjs');
 
 const students = [
