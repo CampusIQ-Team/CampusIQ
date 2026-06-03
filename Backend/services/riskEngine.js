@@ -34,9 +34,9 @@ function calculateRisk(submission) {
 
   // Step 5: classify
   let riskLevel;
-  if (riskScore >= 60) riskLevel = 'high';
-  else if (riskScore >= 35) riskLevel = 'medium';
-  else riskLevel = 'low';
+  if (riskScore >= 60) riskLevel = 'High';
+  else if (riskScore >= 35) riskLevel = 'Medium';
+  else riskLevel = 'Low';
 
   return { riskScore, riskLevel, avgMark: Math.round(avgMark) };
 }
