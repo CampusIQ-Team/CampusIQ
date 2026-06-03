@@ -1,5 +1,5 @@
 const Submission = require('../models/submissions');
-const { calculateRisk } = require('../services/riskEngine');
+const { calculateRisk, generateRecommendations } = require('../services/riskEngine');
 
 // @desc    Submit student data (marks + attendance)
 // @route   POST /api/submissions
@@ -34,11 +34,11 @@ const submitStudentData = async (req, res) => {
         });
       }
 
-      if (typeof subject.attendance !== 'number' || subject.attendance < 0 || subject.attendance > 100) {
-        return res.status(400).json({
-          message: `Attendance for "${subject.name}" must be a number between 0 and 100`
-        });
-      }
+      // if (typeof subject.attendance !== 'number' || subject.attendance < 0 || subject.attendance > 100) {
+      //   return res.status(400).json({
+      //     message: `Attendance for "${subject.name}" must be a number between 0 and 100`
+      //   });
+      // }
     }
 
     // Check for duplicate submission
@@ -65,8 +65,17 @@ const submitStudentData = async (req, res) => {
 
     // Calculate risk immediately after save
     const { riskScore, riskLevel, avgMark } = calculateRisk(submission);
+
+    const recommendations = generateRecommendations(
+        submission,
+        riskLevel
+    );
+
     submission.riskScore = riskScore;
     submission.riskLevel = riskLevel;
+    submission.avgMark = avgMark;
+    submission.recommendations = recommendations;
+
     await submission.save();
 
     res.status(201).json({

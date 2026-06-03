@@ -12,12 +12,12 @@ const subjectSchema = new mongoose.Schema({
     min: [0, 'Mark cannot be less than 0'],
     max: [100, 'Mark cannot exceed 100']
   },
-  attendance: {
-    type: Number,
-    required: [true, 'Attendance is required'],
-    min: [0, 'Attendance cannot be less than 0'],
-    max: [100, 'Attendance cannot exceed 100']
-  }
+  // attendance: {
+  //   type: Number,
+  //   required: [true, 'Attendance is required'],
+  //   min: [0, 'Attendance cannot be less than 0'],
+  //   max: [100, 'Attendance cannot exceed 100']
+  // }
 });
 
 const submissionSchema = new mongoose.Schema(
@@ -49,6 +49,16 @@ const submissionSchema = new mongoose.Schema(
       default: null
     },
 
+    avgMark: {
+      type: Number,
+      default: 0
+    },
+  
+    recommendations: {
+        type: [String],
+        default: []
+    },
+    
     attendance: { 
       type: Number, 
       min: 0, 

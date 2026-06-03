@@ -53,33 +53,37 @@ function renderDashboard(submission) {
         ? Math.round(subjects.reduce((sum, subject) => sum + subject.mark, 0) / totalCourses)
         : 0;
 
-    const averageAttendance = totalCourses
-        ? Math.round(subjects.reduce((sum, subject) => sum + subject.attendance, 0) / totalCourses)
-        : 0;
+        // const averageAttendance = totalCourses
+        //     ? Math.round(subjects.reduce((sum, subject) => sum + subject.attendance, 0) / totalCourses)
+        //     : 0;
 
-    const riskLevel = calculateRiskLevel(averageMark, averageAttendance);
+    const averageAttendance = submission.attendance || 0;
+
+    // const riskLevel = calculateRiskLevel(averageMark, averageAttendance);
+
+    const riskLevel = submission.riskLevel || "N/A";
 
     document.getElementById("averageMark").textContent = `${averageMark}%`;
     document.getElementById("averageAttendance").textContent = `${averageAttendance}%`;
     document.getElementById("riskLevel").textContent = riskLevel;
     document.getElementById("totalCourses").textContent = totalCourses;
 
-    renderCoursesTable(subjects);
+    renderCoursesTable(subjects, submission);
     renderProgressBars(subjects);
     renderRiskSection(riskLevel, averageMark, averageAttendance);
 }
 
-function renderCoursesTable(subjects) {
+function renderCoursesTable(subjects, submission) {
     const tableBody = document.getElementById("coursesTable");
 
     tableBody.innerHTML = subjects.map(subject => {
-        const status = getSubjectStatus(subject.mark, subject.attendance);
+        const status = getSubjectStatus(subject.mark, submission.attendance);
 
         return `
             <tr>
                 <td><strong>${subject.name}</strong></td>
                 <td>${subject.mark}%</td>
-                <td>${subject.attendance}%</td>
+                <td>${submission.attendance}%</td>
                 <td><span class="status ${status.className}">${status.text}</span></td>
             </tr>
         `;

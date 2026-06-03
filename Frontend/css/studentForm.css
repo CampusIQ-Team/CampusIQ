@@ -1,0 +1,117 @@
+/* ==========================================
+   STUDENT DATA FORM
+========================================== */
+
+.student-form {
+    width: 100%;
+}
+
+.student-form h2 {
+    margin: 30px 0 15px;
+    color: #1f2937;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Subject rows */
+.subject-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Inputs */
+.student-form input,
+.student-form select,
+.student-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.student-form input:focus,
+.student-form select:focus,
+.student-form textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Form grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Textarea */
+.student-form textarea {
+    min-height: 120px;
+    resize: vertical;
+    margin-top: 10px;
+}
+
+/* Buttons */
+.student-form button {
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.add-btn {
+    background: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    background: #1d4ed8;
+}
+
+.submit-btn {
+    background: #2563eb;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    background: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .subject-row,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .student-form h2 {
+        font-size: 1.6rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}

@@ -1,94 +1,145 @@
 <%- include("partials/header", { title: "EduRisk | Student Form" }) %>
 
 <link rel="stylesheet" href="/css/management.css">
+<link rel="stylesheet" href="/css/studentForm.css">
 
 <%- include("partials/navbar", { activePage: "student-form" }) %>
 
 <section class="management-hero">
-  <div>
-    <h1>Student Data Input Form</h1>
-    <p>Submit your marks, attendance and study information for risk analysis.</p>
-  </div>
+    <div>
+        <h1>Student Data Input Form</h1>
+        <p>
+            Submit your marks, attendance, and study information to calculate
+            your academic risk level and receive support recommendations.
+        </p>
+    </div>
 </section>
 
 <section class="management-box">
-  <form id="data-form" class="student-form">
 
-    <h2>Subjects and Marks</h2>
+    <form id="data-form" class="student-form">
 
-    <div id="subjects-container">
-      <div class="subject-row">
-        <input class="subject-name" type="text" placeholder="Subject name" required>
-        <input class="subject-mark" type="number" min="0" max="100" placeholder="Mark %" required>
+        <!-- Subjects Section -->
+        <h2>Subjects and Marks</h2>
 
-        <select class="subject-type">
-          <option>Test</option>
-          <option>Exam</option>
-          <option>Assignment</option>
-          <option>Project</option>
-        </select>
-      </div>
-    </div>
+        <div id="subjects-container">
 
-    <button type="button" id="add-subject-btn" class="view-btn">+ Add another subject</button>
+            <div class="subject-row">
+                <input
+                    class="subject-name"
+                    type="text"
+                    placeholder="Subject Name"
+                    required
+                >
 
-    <br><br>
+                <input
+                    class="subject-mark"
+                    type="number"
+                    min="0"
+                    max="100"
+                    placeholder="Mark %"
+                    required
+                >
 
-    <h2>Attendance and Study Information</h2>
+                <select class="subject-type">
+                    <option>Test</option>
+                    <option>Exam</option>
+                    <option>Assignment</option>
+                    <option>Project</option>
+                </select>
+            </div>
 
-    <input id="attendance" type="number" min="0" max="100" placeholder="Overall attendance %" required>
-    <input id="absence-days" type="number" min="0" placeholder="Absence days">
+        </div>
 
-    <select id="absence-reason" required>
-      <option value="">Reason for absence</option>
-      <option>None</option>
-      <option>Illness</option>
-      <option>Transport issues</option>
-      <option>Family responsibility</option>
-      <option>Other</option>
-    </select>
+        <button
+            type="button"
+            id="add-subject-btn"
+            class="add-btn"
+        >
+            + Add Another Subject
+        </button>
 
-    <select id="assignments-on-time" required>
-      <option value="">Assignments submitted on time?</option>
-      <option>Always</option>
-      <option>Sometimes</option>
-      <option>Rarely</option>
-    </select>
+        <!-- Attendance Section -->
+        <h2>Attendance and Study Information</h2>
 
-    <select id="missed-assess" required>
-      <option value="">Missed assessments?</option>
-      <option>No</option>
-      <option>Yes</option>
-    </select>
+        <div class="form-grid">
 
-    <select id="study-hours" required>
-      <option value="">Weekly study hours</option>
-      <option>Less than 5 hours</option>
-      <option>5 - 10 hours</option>
-      <option>More than 10 hours</option>
-    </select>
+            <input
+                id="attendance"
+                type="number"
+                min="0"
+                max="100"
+                placeholder="Overall Attendance %"
+                required
+            >
 
-    <select id="study-feeling" required>
-      <option value="">How do you feel about your studies?</option>
-      <option>Confident</option>
-      <option>Neutral</option>
-      <option>Struggling</option>
-    </select>
+            <input
+                id="absence-days"
+                type="number"
+                min="0"
+                placeholder="Absence Days"
+            >
 
-    <select id="current-support" required>
-      <option value="">Current academic support</option>
-      <option>No support yet</option>
-      <option>Tutor</option>
-      <option>Lecturer consultation</option>
-      <option>Study group</option>
-    </select>
+            <select id="absence-reason" required>
+                <option value="">Reason for Absence</option>
+                <option>None</option>
+                <option>Illness</option>
+                <option>Transport Issues</option>
+                <option>Family Responsibility</option>
+                <option>Other</option>
+            </select>
 
-    <textarea id="notes" placeholder="Extra notes"></textarea>
+            <select id="assignments-on-time" required>
+                <option value="">Assignments Submitted On Time?</option>
+                <option>Always</option>
+                <option>Sometimes</option>
+                <option>Rarely</option>
+            </select>
 
-    <br><br>
+            <select id="missed-assess" required>
+                <option value="">Missed Assessments?</option>
+                <option>No</option>
+                <option>Yes</option>
+            </select>
 
-    <button type="submit" class="add-btn">Submit data and view risk result</button>
-  </form>
+            <select id="study-hours" required>
+                <option value="">Weekly Study Hours</option>
+                <option>Less than 5 Hours</option>
+                <option>5 - 10 Hours</option>
+                <option>More than 10 Hours</option>
+            </select>
+
+            <select id="study-feeling" required>
+                <option value="">How Do You Feel About Your Studies?</option>
+                <option>Confident</option>
+                <option>Neutral</option>
+                <option>Struggling</option>
+            </select>
+
+            <select id="current-support" required>
+                <option value="">Current Academic Support</option>
+                <option>No Support Yet</option>
+                <option>Tutor</option>
+                <option>Lecturer Consultation</option>
+                <option>Study Group</option>
+            </select>
+
+        </div>
+
+        <textarea
+            id="notes"
+            placeholder="Extra Notes (Optional)"
+        ></textarea>
+
+        <button
+            type="submit"
+            class="submit-btn"
+        >
+            Submit Data and View Risk Result
+        </button>
+
+    </form>
+
 </section>
 
 <script src="/js/api.js"></script>
